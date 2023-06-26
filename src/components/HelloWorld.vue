@@ -1,17 +1,20 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <h3>{{ counter }}</h3>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-
+// define readonly props
+const PropsType = {
+  msg: String,
+  counter: Number,
+} as const
 export default defineComponent({
   name: 'HelloWorld',
-  props: {
-    msg: String,
-  },
+  props: PropsType,
 })
 </script>
 
