@@ -4,6 +4,8 @@
   <name-couter />
   <name-couter-reactive />
   <test-tsx-comp name="testjsxcomp" />
+  <render-name-couter />
+  <RenderHelloWorld name="Bob Tang" :age="123" />
 </template>
 
 <script lang="ts">
@@ -12,6 +14,7 @@ import HelloWorld from './components/HelloWorld.vue'
 import NameCouter from './components/NameCouter.vue'
 import NameCouterReactive from './components/NameCouterReactive.vue'
 import TestTsxComp from './components/TestTsxComp'
+import RenderHelloWorld from './components/RenderHelloWorld'
 export default defineComponent({
   name: 'App',
   components: {
@@ -19,6 +22,7 @@ export default defineComponent({
     NameCouter,
     NameCouterReactive,
     TestTsxComp,
+    // RenderHelloWorld,
   },
 })
 </script>
