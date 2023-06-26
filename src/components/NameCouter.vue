@@ -1,11 +1,12 @@
 <template>
-  <p>
-    {{ name }}
-  </p>
+  <div>
+    <p>{{ name }}</p>
+    <p>{{ name2 }}</p>
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, computed, watchEffect } from 'vue'
 export default defineComponent({
   name: 'NameCouter',
   setup() {
@@ -13,8 +14,19 @@ export default defineComponent({
     setInterval(() => {
       name.value += '!'
     }, 1000)
+
+    // 计算属性
+    const name2 = computed(() => {
+      return name.value + '2'
+    })
+
+    // watch
+    watchEffect(() => {
+      console.log('name = ', name.value)
+    })
     return {
       name,
+      name2,
     }
   },
 })
