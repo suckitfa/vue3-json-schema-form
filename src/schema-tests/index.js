@@ -32,8 +32,14 @@ const workerSchema = {
         }
     },
 }
-const workerValidate = new ajv().compile(workerSchema)
+const workerajv = new ajv()
 
+workerajv.addFormat('test',(data) => {
+    console.log('-----------data----------')
+    return data === 'test'
+})
+
+const workerValidate = workerajv.compile(workerSchema)
 const workerValid = workerValidate({
     name: '123',
     age: 18,
